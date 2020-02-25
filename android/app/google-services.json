@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "347127469566",
+    "firebase_url": "https://meca-7ca93.firebaseio.com",
+    "project_id": "meca-7ca93",
+    "storage_bucket": "meca-7ca93.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347127469566:android:63c9cd35c08e6865929caf",
+        "android_client_info": {
+          "package_name": "app.progden.meca"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347127469566-d7hasv7ea3sk0ijqfn7qmopftgnn8sod.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUqRjYQeDGjaoaZQNh0t_pAmClw0jq2yc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347127469566-d7hasv7ea3sk0ijqfn7qmopftgnn8sod.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
