@@ -3,7 +3,6 @@ import 'package:meca/views/cform.dart';
 import 'package:meca/widgets/appBar.dart';
 import 'package:meca/widgets/buttons.dart';
 import 'package:meca/widgets/cards.dart';
-import 'package:table_calendar/table_calendar.dart';
 
 class FacultyProfile extends StatefulWidget{
 
@@ -19,12 +18,10 @@ class FacultyProfile extends StatefulWidget{
 }
 class FacultyProfileState extends State<FacultyProfile> {
 
-  CalendarController _calendarController;
   bool student = true;
   @override
   void initState() {
     super.initState();
-    _calendarController = CalendarController();
   }
   Widget build(BuildContext context){
 
@@ -37,17 +34,31 @@ class FacultyProfileState extends State<FacultyProfile> {
           shrinkWrap: true,
           children: <Widget>[
             Container(
+              height: 200,
                 decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomLeft,
-                        colors: [Colors.blue[600], Colors.lightBlue[200]]
+                    image: DecorationImage(
+                      colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.3), BlendMode.multiply),
+                      fit: BoxFit.cover,
+                      image: AssetImage("assets/images/ccs.jpg")
                     )
                 ),
                 child: Padding(
                     padding: new EdgeInsets.fromLTRB(12, 50, 12, 12),
-                    child: Column(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
+                        Container(
+                          width: 100,
+                          height: 100,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage("assets/images/m.jpg")
+                            )
+                          ),
+                        ),
+                        /*
                         SizedBox(
                             width: 160,
                             height: 160,
@@ -58,46 +69,52 @@ class FacultyProfileState extends State<FacultyProfile> {
                               )
                             )
                         ),
+
+                         */
+
                         Padding(
                             padding: new EdgeInsets.fromLTRB(0, 20, 0, 4),
-                            child: Column(
-                              children: <Widget>[
-                                Text('Faculty Member Name',
-                                    style: Theme.of(context).textTheme.title),
-                                Text('Faculty Member Position',
-                                    style: Theme.of(context).textTheme.subhead)
-                              ],
+                            child: Container(
+                              child: Column(
+                                children: <Widget>[
+                                  Text('Faculty Member Name',
+                                      style: Theme.of(context).textTheme.title),
+                                  Text('Faculty Member Position',
+                                      style: Theme.of(context).textTheme.subhead),
+                                  Visibility(
+                                    visible: student,
+                                    replacement: Padding(
+                                        padding: new EdgeInsets.only(top: 10),
+                                        child: MecaFlatButton(
+                                            text: 'Update Status',
+                                            onPressed:() {
+                                              Navigator.push(context,
+                                                MaterialPageRoute(
+                                                    builder: (context) => ConsultationForm()
+                                                ),);
+
+                                            }
+                                        )
+                                    ),
+                                    child: Padding(
+                                        padding: new EdgeInsets.only(top: 10),
+                                        child: MecaFlatButton(
+                                            text: 'Request Consultation',
+                                            onPressed:() {
+                                              Navigator.push(context,
+                                                MaterialPageRoute(
+                                                    builder: (context) => ConsultationForm()
+                                                ),);
+
+                                            }
+                                        )
+                                    ),
+                                  ),
+                                ],
+                              ),
                             )
                         ),
-                        Visibility(
-                          visible: student,
-                          replacement: Padding(
-                              padding: new EdgeInsets.only(top: 10),
-                              child: MecaFlatButton(
-                                  text: 'Update Status',
-                                  onPressed:() {
-                                    Navigator.push(context,
-                                      MaterialPageRoute(
-                                          builder: (context) => ConsultationForm()
-                                      ),);
 
-                                  }
-                              )
-                          ),
-                          child: Padding(
-                              padding: new EdgeInsets.only(top: 10),
-                              child: MecaFlatButton(
-                                  text: 'Request Consultation',
-                                  onPressed:() {
-                                    Navigator.push(context,
-                                      MaterialPageRoute(
-                                          builder: (context) => ConsultationForm()
-                                      ),);
-
-                                  }
-                              )
-                          ),
-                        ),
 
                       ],
                     )
@@ -127,15 +144,7 @@ class FacultyProfileState extends State<FacultyProfile> {
                             StatusEntry()
 
                           ],),
-                          TableCalendar(
-                            calendarController: _calendarController,
-                            initialCalendarFormat: CalendarFormat.week,
-                            availableGestures: AvailableGestures.none,
-                            availableCalendarFormats: const {
-                              CalendarFormat.week: 'Week',
-                              CalendarFormat.twoWeeks: '2 Weeks'
-                            },
-                          )
+                          Text("TESTIK")
                         ],
                       ),
                     )
@@ -164,12 +173,10 @@ class StudentProfile extends StatefulWidget{
 }
 class StudentProfileState extends State<StudentProfile> {
 
-  CalendarController _calendarController;
   bool student = false;
   @override
   void initState() {
     super.initState();
-    _calendarController = CalendarController();
   }
   Widget build(BuildContext context){
 
@@ -272,9 +279,7 @@ class StudentProfileState extends State<StudentProfile> {
                               StatusEntry()
 
                             ],),
-                          TableCalendar(
-                            calendarController: _calendarController,
-                          )
+                          Text("TEST")
                         ],
                       ),
                     )
